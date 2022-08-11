@@ -37,6 +37,9 @@ app.get("/pontuacoes", function (req, res) {
 
 // Endpoint CREATE - [POST] /pontuacoes
 app.post("/pontuacoes", function (req, res) {
+  const item = req.body;
+  console.log(item);
+
   res.send("Criar uma pontuação");
 });
 
