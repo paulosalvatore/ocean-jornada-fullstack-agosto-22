@@ -65,19 +65,21 @@ async function main() {
   });
 
   // Endpoint CREATE - [POST] /pontuacoes
-  app.post("/pontuacoes", function (req, res) {
+  app.post("/pontuacoes", async function (req, res) {
     // Peguei o item do corpo da requisição
     const item = req.body;
     // console.log(item);
 
     // Adicionar o item na lista
-    lista.push({
-      id: lista.length + 1,
-      nome: item.nome,
-      pontos: item.pontos,
-    });
+    // lista.push({
+    //   id: lista.length + 1,
+    //   nome: item.nome,
+    //   pontos: item.pontos,
+    // });
 
-    res.send("Item criado com sucesso!");
+    await collection.insertOne(item);
+
+    res.send(item);
   });
 
   app.listen(3000);
