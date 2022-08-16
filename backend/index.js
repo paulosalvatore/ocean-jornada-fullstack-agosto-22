@@ -58,8 +58,9 @@ async function main() {
   ];
 
   // Endpoint READ ALL - [GET] /pontuacoes
-  app.get("/pontuacoes", function (req, res) {
-    res.send(lista);
+  app.get("/pontuacoes", async function (req, res) {
+    const itens = await collection.find().toArray();
+    res.send(itens);
   });
 
   // Endpoint CREATE - [POST] /pontuacoes
