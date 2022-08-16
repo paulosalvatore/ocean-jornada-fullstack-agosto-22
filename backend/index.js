@@ -40,27 +40,32 @@ async function main() {
   // Nosso backend armazena as pontuações das jogadas
   // Criar a lista com as pontuações
 
-  const lista = [
-    {
-      id: 1,
-      nome: "Paulo",
-      pontos: 21,
-    },
-    {
-      id: 2,
-      nome: "Daniel",
-      pontos: 52,
-    },
-    {
-      id: 3,
-      nome: "Beatriz",
-      pontos: 97,
-    },
-  ];
+  // const lista = [
+  //   {
+  //     id: 1,
+  //     nome: "Paulo",
+  //     pontos: 21,
+  //   },
+  //   {
+  //     id: 2,
+  //     nome: "Daniel",
+  //     pontos: 52,
+  //   },
+  //   {
+  //     id: 3,
+  //     nome: "Beatriz",
+  //     pontos: 97,
+  //   },
+  // ];
 
   // Endpoint READ ALL - [GET] /pontuacoes
   app.get("/pontuacoes", async function (req, res) {
-    const itens = await collection.find().toArray();
+    const itens = await collection
+      .find()
+      .sort({ pontos: -1 })
+      .limit(10)
+      .toArray();
+
     res.send(itens);
   });
 
