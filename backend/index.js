@@ -87,7 +87,7 @@ async function main() {
     res.send(item);
   });
 
-  app.listen(3000);
+  app.listen(process.env.port ||3000);
 }
 
 // Executamos a função main()
