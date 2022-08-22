@@ -4,7 +4,7 @@ import clouds from "../../assets/clouds.png";
 function Jogo() {
   return (
     <div className="jogo">
-      <img src={clouds} />
+      <img className="nuvens" src={clouds} alt="Nuvens" />
     </div>
   );
 }

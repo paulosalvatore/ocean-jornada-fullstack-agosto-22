@@ -2,3 +2,11 @@
   background: #9be5e4;
   height: 100vh;
 }
+
+.nuvens {
+  width: 200px;
+
+  position: absolute;
+  top: 30px;
+  left: 50%;
+}
