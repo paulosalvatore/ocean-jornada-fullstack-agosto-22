@@ -8,7 +8,8 @@
 
   position: absolute;
   top: 30px;
-  left: 50%;
+
+  animation: mover-direita-para-esquerda infinite 8s linear;
 }
 
 .cano {
