@@ -2,7 +2,7 @@ import "./Jogo.css";
 import nuvens from "../../assets/clouds.png";
 import cano from "../../assets/pipe.png";
 import mario from "../../assets/mario.gif";
-import { useState } from "react";
+import React, { useState } from "react";
 
 function Jogo() {
   /*
@@ -17,14 +17,14 @@ function Jogo() {
   */
 
   // Criamos o estado `estaPulando`, com o valor padrão `false`.
-  // Primeiro valor é apenas para ler
-  // Segundo valor é para atualizar o estado
+  // Primeiro valor é apenas para ler (GET)
+  // Segundo valor é para atualizar o estado (SET)
+  // No momento que um estado é atualizado, o componente atualiza
+  // tudo o que está sendo renderizado
   const [estaPulando, setEstaPulando] = useState(false);
 
   document.onkeydown = function () {
-    console.log("On Key Down");
-
-    estaPulando = true;
+    setEstaPulando(true);
   };
 
   console.log(15, { estaPulando });
