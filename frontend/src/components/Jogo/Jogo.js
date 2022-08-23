@@ -24,10 +24,21 @@ function Jogo() {
   const [estaPulando, setEstaPulando] = useState(false);
 
   document.onkeydown = function () {
+    // Atualizamos o estado para true
     setEstaPulando(true);
+
+    // 700ms = 0.7s
+    setTimeout(function () {
+      // Voltamos o estado para o valor inicial
+      setEstaPulando(false);
+    }, 700);
   };
 
-  console.log(15, { estaPulando });
+  let marioClassName = "mario";
+
+  if (estaPulando) {
+    marioClassName = "mario mario-pulo";
+  }
 
   return (
     <div className="jogo">
@@ -35,7 +46,7 @@ function Jogo() {
 
       <img className="cano" src={cano} alt="Cano" />
 
-      <img className="mario" src={mario} alt="Mário" />
+      <img className={marioClassName} src={mario} alt="Mário" />
 
       <div className="chao"></div>
     </div>
