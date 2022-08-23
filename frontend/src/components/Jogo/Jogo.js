@@ -34,8 +34,11 @@ function Jogo() {
     }, 700);
   };
 
+  // Por padrão, o elemento tem a classe `.mario`
   let marioClassName = "mario";
 
+  // Caso esteja pulando (valor true), a classe será `.mario`
+  // e `.mario-pulo`
   if (estaPulando) {
     marioClassName = "mario mario-pulo";
   }
