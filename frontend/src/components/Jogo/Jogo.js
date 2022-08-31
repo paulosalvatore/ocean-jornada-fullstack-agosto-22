@@ -58,13 +58,13 @@ function Jogo(props) {
     function () {
       // Implementação temporária para exibir se o mário
       // está no cano ou não
-      setInterval(function () {
+      const interval = setInterval(function () {
         // Pegamos o valor que determinar se o Mario
         // está no cano ou não
         const estaNoCano = marioEstaNoCano();
 
         // Se o Mario não estiver no cano, encerramos a função com `return`
-        if (!estaNoCano) {
+        if (!estaNoCano || estaMorto) {
           return;
         }
 
@@ -75,9 +75,10 @@ function Jogo(props) {
       }, 100);
 
       // (Opcional) Return mecanismo que desfaz o Effect anterior
+      return () => clearInterval(interval);
     },
     // Lista de dependências
-    []
+    [estaMorto]
   );
 
   // UseEffect
