@@ -1,0 +1,11 @@
+.HighScore {
+  position: absolute;
+
+  top: 5%;
+  left: 15%;
+  width: calc(70% - 1rem - 1rem);
+  height: calc(90% - 1rem - 1rem);
+
+  background: white;
+  padding: 1rem;
+}
