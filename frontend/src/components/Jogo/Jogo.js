@@ -23,7 +23,10 @@ function Jogo() {
   // No momento que um estado é atualizado, o componente atualiza
   // tudo o que está sendo renderizado
   const [estaPulando, setEstaPulando] = useState(false);
+
   const [estaMorto, setEstaMorto] = useState(false);
+
+  const [pontos, setPontos] = useState(0);
 
   // Criamos as referências para `mario` e `cano`
   const marioRef = useRef();
@@ -67,12 +70,16 @@ function Jogo() {
     setEstaMorto(true);
   }, 100);
 
-  /*
-  Quando estiver morto:
-  - Mudar a imagem do Mario
-  - Pausar animações
-  - Salvar a pontuação
-  */
+  // Salvar a pontuação
+  setInterval(function () {
+    if (estaMorto) {
+      return;
+    }
+
+    setPontos(pontos + 1);
+
+    console.log({ pontos });
+  }, 500);
 
   document.onkeydown = function () {
     // Atualizamos o estado para true
