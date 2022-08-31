@@ -7,7 +7,7 @@ function App() {
   const [gameOver, setGameOver] = useState(false);
 
   function onMorrer() {
-    console.log("App -> onMorrer");
+    setGameOver(true);
   }
 
   return (
