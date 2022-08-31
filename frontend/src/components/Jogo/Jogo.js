@@ -80,14 +80,17 @@ function Jogo() {
         }
 
         setPontos(pontos + 1);
-
-        console.log({ pontos });
       }, 500);
 
       return () => clearInterval(interval);
     },
     [estaMorto, pontos]
   );
+
+  /*
+  - Exibir pontos em tempo real (DESAFIO)
+  - Quando der GameOver, exibir o HighScore
+  */
 
   document.onkeydown = function () {
     // Atualizamos o estado para true
@@ -123,6 +126,8 @@ function Jogo() {
 
   return (
     <div className="jogo">
+      <div>Pontos: {pontos}</div>
+
       <img className="nuvens" src={nuvens} alt="Nuvens" />
 
       <img
