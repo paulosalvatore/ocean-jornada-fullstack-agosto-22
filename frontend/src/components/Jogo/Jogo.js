@@ -3,7 +3,7 @@ import nuvens from "../../assets/clouds.png";
 import cano from "../../assets/pipe.png";
 import mario from "../../assets/mario.gif";
 import gameOver from "../../assets/game-over.png";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 function Jogo() {
   /*
@@ -70,16 +70,24 @@ function Jogo() {
     setEstaMorto(true);
   }, 100);
 
-  // Salvar a pontuação
-  setInterval(function () {
-    if (estaMorto) {
-      return;
-    }
+  // UseEffect
+  useEffect(
+    function () {
+      // Salvar a pontuação
+      const interval = setInterval(function () {
+        if (estaMorto) {
+          return;
+        }
 
-    setPontos(pontos + 1);
+        setPontos(pontos + 1);
 
-    console.log({ pontos });
-  }, 500);
+        console.log({ pontos });
+      }, 500);
+
+      return () => clearInterval(interval);
+    },
+    [estaMorto, pontos]
+  );
 
   document.onkeydown = function () {
     // Atualizamos o estado para true
