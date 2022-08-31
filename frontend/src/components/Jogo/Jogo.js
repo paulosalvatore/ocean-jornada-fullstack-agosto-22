@@ -94,6 +94,9 @@ function Jogo() {
     marioClassName = "mario mario-pulo";
   }
 
+  // Outra forma de simplificar, usando ternário
+  // const marioClassName = "mario " + (estaPulando ? "mario-pulo" : "");
+
   // No lugar de declarar uma variável e mudar o valor dela em um caso de `if`,
   // como fizemos com o className do Mario, podemos criar uma variável
   // com dois valores, um para caso a condição seja verdadeira, outro para
