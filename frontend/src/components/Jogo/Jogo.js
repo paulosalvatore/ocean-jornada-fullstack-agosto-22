@@ -53,23 +53,32 @@ function Jogo(props) {
     );
   }
 
-  // Implementação temporária para exibir se o mário está no cano
-  // ou não
-  setInterval(function () {
-    // Pegamos o valor que determinar se o Mario
-    // está no cano ou não
-    const estaNoCano = marioEstaNoCano();
+  useEffect(
+    // Effect
+    function () {
+      // Implementação temporária para exibir se o mário
+      // está no cano ou não
+      setInterval(function () {
+        // Pegamos o valor que determinar se o Mario
+        // está no cano ou não
+        const estaNoCano = marioEstaNoCano();
 
-    // Se o Mario não estiver no cano, encerramos a função com `return`
-    if (!estaNoCano) {
-      return;
-    }
+        // Se o Mario não estiver no cano, encerramos a função com `return`
+        if (!estaNoCano) {
+          return;
+        }
 
-    // Caso esteja no cano, atualizamos o estado
-    // `estaMorto` para `true`
-    setEstaMorto(true);
-    props.onMorrer();
-  }, 100);
+        // Caso esteja no cano, atualizamos o estado
+        // `estaMorto` para `true`
+        setEstaMorto(true);
+        props.onMorrer();
+      }, 100);
+
+      // (Opcional) Return mecanismo que desfaz o Effect anterior
+    },
+    // Lista de dependências
+    []
+  );
 
   // UseEffect
   useEffect(
