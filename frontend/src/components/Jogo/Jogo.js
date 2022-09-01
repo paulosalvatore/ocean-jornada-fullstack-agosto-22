@@ -71,6 +71,7 @@ function Jogo(props) {
         // Caso esteja no cano, atualizamos o estado
         // `estaMorto` para `true`
         setEstaMorto(true);
+
         props.onMorrer();
       }, 100);
 
@@ -78,7 +79,7 @@ function Jogo(props) {
       return () => clearInterval(interval);
     },
     // Lista de dependências
-    [estaMorto]
+    [estaMorto, props]
   );
 
   // UseEffect
@@ -91,6 +92,7 @@ function Jogo(props) {
         }
 
         setPontos(pontos + 1);
+        props.onPontos(pontos + 1);
       }, 500);
 
       return () => clearInterval(interval);

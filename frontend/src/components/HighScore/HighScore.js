@@ -1,10 +1,19 @@
 import "./HighScore.css";
 
-function HighScore() {
+/*
+- Exibir a pontuação que o jogador fez
+- Pegar os HighScores do Backend e exibir as pontuações recebidas
+- A pessoa irá digitar o nome e clicar no botão "Enviar" para submeter
+um novo score
+- Depois que submeteu um novo score, vamos recarregar a lista
+de scores
+*/
+
+function HighScore(props) {
   return (
     <div className="HighScore">
       <div>
-        Você fez <b>50</b> pontos!
+        Você fez <b>{props.pontos}</b> pontos!
       </div>
 
       <div>
