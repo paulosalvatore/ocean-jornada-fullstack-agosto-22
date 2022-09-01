@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import "./HighScore.css";
 
 /*
@@ -18,7 +19,28 @@ function HighScore(props) {
   // Axios
   // entre outras
 
-  fetch("http://localhost:3333/pontuacoes").then(console.log);
+  const [itens, setItens] = useState(undefined);
+
+  useEffect(function () {
+    // Declaração da função
+    async function carregarPontuacoes() {
+      // Fazemos a requisição e recebemos a resposta
+      const response = await fetch("http://localhost:3333/pontuacoes");
+
+      // Extraímos o JSON do Corpo da Resposta
+      const body = await response.json();
+
+      // Atualizamos o estado `itens` com os valores recebido
+      // Ao atualizar o estado, o React renderiza o componente
+      // novamente
+      setItens(body);
+    }
+
+    // Executamos a função
+    carregarPontuacoes();
+  }, []);
+
+  console.log(itens);
 
   return (
     <div className="HighScore">
