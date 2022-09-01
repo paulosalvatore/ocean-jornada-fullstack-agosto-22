@@ -97,7 +97,7 @@ function Jogo(props) {
 
       return () => clearInterval(interval);
     },
-    [estaMorto, pontos]
+    [estaMorto, pontos, props]
   );
 
   /*
