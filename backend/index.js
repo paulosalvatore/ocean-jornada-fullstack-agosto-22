@@ -1,8 +1,10 @@
 const express = require("express");
 const { MongoClient } = require("mongodb");
+const cors = require("cors");
 
 // const url = "mongodb://localhost:27017";
-const url = "mongodb+srv://admin:beeDsNaD7hrUJflY@cluster0.0tjjv1e.mongodb.net/";
+const url =
+  "mongodb+srv://admin:beeDsNaD7hrUJflY@cluster0.0tjjv1e.mongodb.net/";
 const dbName = "jornada-fullstack-agosto-22";
 
 // Declaração da função main()
@@ -24,6 +26,9 @@ async function main() {
   console.log("Banco de dados conectado com sucesso!");
 
   const app = express();
+
+  // Ativamos as configurações do CORS
+  app.use(cors());
 
   // Sinalizamos para o express que estamos usando
   // JSON no body das requisições
@@ -87,7 +92,7 @@ async function main() {
     res.send(item);
   });
 
-  app.listen(process.env.PORT || 3000);
+  app.listen(process.env.PORT || 3333);
 }
 
 // Executamos a função main()
