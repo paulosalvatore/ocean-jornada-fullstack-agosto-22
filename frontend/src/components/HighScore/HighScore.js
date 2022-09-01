@@ -42,6 +42,8 @@ function HighScore(props) {
 
   console.log(itens);
 
+  const itensEstaoCarregando = itens === undefined;
+
   return (
     <div className="HighScore">
       <div>
@@ -51,9 +53,17 @@ function HighScore(props) {
       <div>
         <h1>HighScore</h1>
 
-        <div>Paulo - 90 pontos</div>
-        <div>João - 50 pontos</div>
-        <div>Ana - 32 pontos</div>
+        {itensEstaoCarregando ? (
+          <div>Carregando...</div>
+        ) : (
+          <div>
+            {itens.map((item) => (
+              <div>
+                {item.nome} - {item.pontos}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       <div>
