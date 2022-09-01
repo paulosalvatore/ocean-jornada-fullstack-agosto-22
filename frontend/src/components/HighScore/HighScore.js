@@ -10,6 +10,16 @@ de scores
 */
 
 function HighScore(props) {
+  // Fazer uma solicitação para o backend trazer as maiores pontuações
+  // Endpoint: [GET] http://localhost:3333/pontuacoes
+  // Solicitação = Requisição HTTP
+  // Para fazer requisições HTTP, temos algumas bibliotecas:
+  // Fetch
+  // Axios
+  // entre outras
+
+  fetch("http://localhost:3333/pontuacoes").then(console.log);
+
   return (
     <div className="HighScore">
       <div>
