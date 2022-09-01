@@ -57,8 +57,8 @@ function HighScore(props) {
           <div>Carregando...</div>
         ) : (
           <div>
-            {itens.map((item) => (
-              <div>
+            {itens.map((item, index) => (
+              <div key={`score_${index}`}>
                 {item.nome} - {item.pontos}
               </div>
             ))}
